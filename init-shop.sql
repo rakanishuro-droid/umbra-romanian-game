@@ -1,0 +1,2 @@
+-- Initialize shop items if table exists
+-- This will be run manually via database_execute

@@ -1,0 +1,477 @@
+/* Premium Mafia Background - Cars, Characters, Weapons */
+.premium-mafia-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a1e 25%, #0d0d15 50%, #1a0a0f 75%, #0a0a0f 100%);
+  background-size: 400% 400%;
+  animation: premiumShift 25s ease infinite;
+  overflow: hidden;
+}
+
+@keyframes premiumShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating luxury cars */
+.luxury-cars {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  pointer-events: none;
+}
+
+.car {
+  position: absolute;
+  bottom: 0;
+  opacity: 0.3;
+  animation: carDrive 30s linear infinite;
+}
+
+.car::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 120px;
+  height: 40px;
+  background: linear-gradient(to right, #1a1a2e, #2d2d44, #1a1a2e);
+  border-radius: 5px 5px 0 0;
+  box-shadow: 
+    0 -10px 30px rgba(255,100,50,0.3),
+    inset 0 -5px 20px rgba(0,0,0,0.5);
+}
+
+.car::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  width: 20px;
+  height: 15px;
+  background: linear-gradient(to right, rgba(100,100,150,0.5), rgba(50,50,100,0.8));
+  border-radius: 3px;
+}
+
+.car:nth-child(1) { 
+  animation-delay: 0s; 
+  animation-duration: 35s;
+  left: 10%;
+}
+.car:nth-child(2) { 
+  animation-delay: 10s; 
+  animation-duration: 40s;
+  left: 40%;
+  transform: scale(0.8);
+}
+.car:nth-child(3) { 
+  animation-delay: 20s; 
+  animation-duration: 30s;
+  left: 70%;
+  transform: scale(1.2);
+}
+
+@keyframes carDrive {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px));
+    opacity: 0;
+  }
+}
+
+/* Silhouette characters */
+.mafia-characters {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.character {
+  position: absolute;
+  bottom: 15%;
+  width: 80px;
+  height: 200px;
+  opacity: 0.15;
+  animation: characterMove 20s ease-in-out infinite;
+}
+
+.character::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 180px;
+  background: linear-gradient(to top, #0a0a0f, transparent);
+  border-radius: 30px 30px 0 0;
+}
+
+.character::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, rgba(50,50,50,0.8), transparent);
+  border-radius: 50%;
+}
+
+.character:nth-child(1) {
+  left: 15%;
+  animation-delay: 0s;
+}
+.character:nth-child(2) {
+  left: 45%;
+  animation-delay: 5s;
+  transform: scale(1.1);
+}
+.character:nth-child(3) {
+  left: 75%;
+  animation-delay: 10s;
+  transform: scale(0.9);
+}
+
+@keyframes characterMove {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.2;
+  }
+}
+
+/* Weapon silhouettes */
+.weapon-silhouettes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.weapon {
+  position: absolute;
+  opacity: 0.1;
+  animation: weaponFloat 15s ease-in-out infinite;
+}
+
+.weapon::before {
+  content: '';
+  position: absolute;
+  background: linear-gradient(to right, #2a2a3a, #3a3a4a);
+  border-radius: 3px;
+  box-shadow: 0 0 20px rgba(255,50,50,0.2);
+}
+
+/* Pistol */
+.weapon.pistol::before {
+  width: 60px;
+  height: 15px;
+  top: 30%;
+  left: 20%;
+}
+
+/* Rifle */
+.weapon.rifle::before {
+  width: 100px;
+  height: 12px;
+  top: 50%;
+  left: 60%;
+}
+
+/* Shotgun */
+.weapon.shotgun::before {
+  width: 80px;
+  height: 18px;
+  top: 70%;
+  left: 40%;
+}
+
+.weapon.pistol { animation-delay: 0s; }
+.weapon.rifle { animation-delay: 5s; }
+.weapon.shotgun { animation-delay: 10s; }
+
+@keyframes weaponFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+    opacity: 0.15;
+  }
+}
+
+/* Money particles */
+.money-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.money {
+  position: absolute;
+  width: 30px;
+  height: 15px;
+  background: linear-gradient(135deg, #85bb65 0%, #4a7c35 100%);
+  border-radius: 2px;
+  opacity: 0;
+  animation: moneyFall 12s infinite;
+  box-shadow: 0 0 10px rgba(133, 187, 101, 0.5);
+}
+
+.money::before {
+  content: '$';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #2d5016;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.money:nth-child(1) { left: 10%; animation-delay: 0s; }
+.money:nth-child(2) { left: 30%; animation-delay: 2s; }
+.money:nth-child(3) { left: 50%; animation-delay: 4s; }
+.money:nth-child(4) { left: 70%; animation-delay: 6s; }
+.money:nth-child(5) { left: 90%; animation-delay: 8s; }
+.money:nth-child(6) { left: 20%; animation-delay: 1s; }
+.money:nth-child(7) { left: 60%; animation-delay: 3s; }
+.money:nth-child(8) { left: 80%; animation-delay: 5s; }
+.money:nth-child(9) { left: 40%; animation-delay: 7s; }
+.money:nth-child(10) { left: 55%; animation-delay: 9s; }
+
+@keyframes moneyFall {
+  0% {
+    top: -50px;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 110vh;
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+}
+
+/* Golden premium effects */
+.golden-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.golden-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255,215,0,0.8), transparent);
+  border-radius: 50%;
+  animation: goldenFloat 20s infinite;
+}
+
+.golden-particle:nth-child(1) { left: 5%; animation-delay: 0s; }
+.golden-particle:nth-child(2) { left: 15%; animation-delay: 3s; }
+.golden-particle:nth-child(3) { left: 25%; animation-delay: 6s; }
+.golden-particle:nth-child(4) { left: 35%; animation-delay: 9s; }
+.golden-particle:nth-child(5) { left: 45%; animation-delay: 12s; }
+.golden-particle:nth-child(6) { left: 55%; animation-delay: 15s; }
+.golden-particle:nth-child(7) { left: 65%; animation-delay: 18s; }
+.golden-particle:nth-child(8) { left: 75%; animation-delay: 2s; }
+.golden-particle:nth-child(9) { left: 85%; animation-delay: 5s; }
+.golden-particle:nth-child(10) { left: 95%; animation-delay: 8s; }
+
+@keyframes goldenFloat {
+  0% {
+    top: 100vh;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: -10vh;
+    opacity: 0;
+  }
+}
+
+/* Spotlight effects */
+.spotlights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.spotlight {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: spotlightPulse 8s ease-in-out infinite;
+}
+
+.spotlight:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  background: radial-gradient(circle, rgba(255,100,50,0.15) 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+.spotlight:nth-child(2) {
+  bottom: 20%;
+  right: 10%;
+  background: radial-gradient(circle, rgba(200,50,50,0.15) 0%, transparent 70%);
+  animation-delay: 3s;
+}
+
+.spotlight:nth-child(3) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+  animation-delay: 5s;
+}
+
+@keyframes spotlightPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Premium luxury elements */
+.luxury-decoration {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-family: 'Georgia', serif;
+  font-size: 11px;
+  color: rgba(212,175,55,0.7);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  z-index: 0;
+  animation: luxuryPulse 4s infinite;
+}
+
+@keyframes luxuryPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Dangerous red glow */
+.dangerous-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(255,0,0,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(139,0,0,0.15) 0%, transparent 50%);
+  animation: dangerPulse 10s ease-in-out infinite;
+}
+
+@keyframes dangerPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Night city effect */
+.night-city {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: 
+    linear-gradient(to top, rgba(10,10,15,0.9) 0%, transparent 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,200,100,0.05) 0px,
+      rgba(255,200,100,0.05) 2px,
+      transparent 2px,
+      transparent 15px
+    );
+  pointer-events: none;
+}
+
+/* Premium container */
+.premium-bg-container {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Vignette effect */
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.9) 100%);
+  z-index: 0;
+}
+
+/* Glass morphism effect */
+.glass-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.01) 0%, transparent 50%);
+  z-index: 0;
+}

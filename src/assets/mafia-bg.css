@@ -1,0 +1,254 @@
+/* Mafia-themed animated background */
+.mafia-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a0a1e 25%, #0d1b0d 50%, #1a0a0f 75%, #0a0a0f 100%);
+  background-size: 400% 400%;
+  animation: mafiaShift 20s ease infinite;
+  overflow: hidden;
+}
+
+@keyframes mafiaShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animated cityscape silhouette */
+.mafia-background::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: 
+    linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.3) 0px,
+      rgba(0,0,0,0.3) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  animation: cityMove 30s linear infinite;
+}
+
+@keyframes cityMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100px); }
+}
+
+/* Floating particles (ash/smoke) */
+.mafia-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, rgba(255,100,50,0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: particleFloat 15s infinite;
+  opacity: 0;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+.particle:nth-child(2) { left: 25%; animation-delay: 2s; animation-duration: 18s; }
+.particle:nth-child(3) { left: 40%; animation-delay: 4s; animation-duration: 15s; }
+.particle:nth-child(4) { left: 55%; animation-delay: 1s; animation-duration: 20s; }
+.particle:nth-child(5) { left: 70%; animation-delay: 3s; animation-duration: 16s; }
+.particle:nth-child(6) { left: 85%; animation-delay: 5s; animation-duration: 14s; }
+.particle:nth-child(7) { left: 95%; animation-delay: 6s; animation-duration: 19s; }
+.particle:nth-child(8) { left: 15%; animation-delay: 7s; animation-duration: 17s; }
+.particle:nth-child(9) { left: 60%; animation-delay: 8s; animation-duration: 13s; }
+.particle:nth-child(10) { left: 80%; animation-delay: 9s; animation-duration: 21s; }
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+/* Spotlights effect */
+.mafia-spotlights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(255,100,50,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(200,50,50,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(100,50,150,0.05) 0%, transparent 50%);
+  animation: spotlightPulse 8s ease-in-out infinite;
+}
+
+@keyframes spotlightPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Blood drip effect */
+.mafia-drips {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.drip {
+  position: absolute;
+  top: -50px;
+  width: 2px;
+  height: 50px;
+  background: linear-gradient(to bottom, rgba(150,0,0,0.8), transparent);
+  animation: dripFall 10s infinite;
+}
+
+.drip:nth-child(1) { left: 5%; animation-delay: 0s; }
+.drip:nth-child(2) { left: 20%; animation-delay: 3s; }
+.drip:nth-child(3) { left: 45%; animation-delay: 7s; }
+.drip:nth-child(4) { left: 70%; animation-delay: 2s; }
+.drip:nth-child(5) { left: 90%; animation-delay: 5s; }
+
+@keyframes dripFall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Smoke effect */
+.mafia-smoke {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(50,50,50,0.3) 0%, transparent 100%);
+  animation: smokeRise 20s infinite;
+}
+
+@keyframes smokeRise {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: translateY(0) scale(1);
+  }
+  50% { 
+    opacity: 0.5;
+    transform: translateY(-20px) scale(1.1);
+  }
+}
+
+/* Neon signs flicker */
+.neon-flicker {
+  animation: neonFlicker 4s infinite;
+}
+
+@keyframes neonFlicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #ff0000,
+      0 0 80px #ff0000,
+      0 0 90px #ff0000,
+      0 0 100px #ff0000,
+      0 0 150px #ff0000;
+  }
+  20%, 24%, 55% {   
+    text-shadow: none;
+  }
+}
+
+/* Overall container */
+.mafia-bg-container {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Vignette effect */
+.mafia-vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.8) 100%);
+  z-index: 0;
+}
+
+/* Grid pattern overlay */
+.mafia-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+}
+
+/* Mafia-style decorative elements */
+.mafia-decoration {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'Times New Roman', serif;
+  font-size: 12px;
+  color: rgba(200,50,50,0.6);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 0;
+  animation: decorationPulse 5s infinite;
+}
+
+@keyframes decorationPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
