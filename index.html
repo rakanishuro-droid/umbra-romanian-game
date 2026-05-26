@@ -1,19 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/background.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Umbra României – Browser MMORPG</title>
-    <meta name="description" content="Rise through crime, politics, and power in a dark Romanian underworld. Browser-based MMORPG." />
-    <meta name="author" content="Umbra României" />
-    <meta property="og:title" content="Umbra României – Browser MMORPG" />
-    <meta property="og:description" content="Rise through crime, politics, and power in a dark Romanian underworld." />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <meta name="description" content="UMBRA ROMÂNIEI - MMORPG Browser Noir set în România coruptă" />
+    <title>UMBRA ROMÂNIEI - MMORPG Noir Românesc</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #000;
+        color: #fff;
+      }
+      #loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        z-index: 9999;
+      }
+      .logo {
+        font-size: 48px;
+        font-weight: bold;
+        color: #dc2626;
+        text-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+      }
+      .loading-text {
+        font-size: 18px;
+        color: #fbbf24;
+      }
+      .dots {
+        display: flex;
+        gap: 8px;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        background: #dc2626;
+        border-radius: 50%;
+        animation: bounce 1.4s infinite ease-in-out both;
+      }
+      .dot:nth-child(1) { animation-delay: -0.32s; }
+      .dot:nth-child(2) { animation-delay: -0.16s; }
+      .dot:nth-child(3) { animation-delay: 0s; }
+      @keyframes bounce {
+        0%, 80%, 100% { transform: scale(0); }
+        40% { transform: scale(1); }
+      }
+    </style>
   </head>
   <body>
+    <div id="loading">
+      <div class="logo">UR</div>
+      <div class="loading-text">Se încarcă Umbra României...</div>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
