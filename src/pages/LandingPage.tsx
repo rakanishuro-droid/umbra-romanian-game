@@ -22,7 +22,7 @@ const LandingPage = () => {
 
   return (
     <div className="relative min-h-screen">
-      {/* YOUR ARTWORK AS BACKGROUND - Using public folder */}
+      {/* YOUR ARTWORK AS BACKGROUND */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
@@ -32,9 +32,8 @@ const LandingPage = () => {
         }}
       />
       
-      {/* Subtle overlay - LIGHTER to show your artwork better */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/25" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+      {/* Dark overlay - TOP ONLY to let artwork show */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/40" />
       
       {/* Navigation */}
       <nav className="relative z-10 flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
@@ -60,52 +59,54 @@ const LandingPage = () => {
         </div>
       </nav>
 
-      {/* Hero Content */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-16 text-center">
-        <div className="animate-slide-up">
-          {/* Browser Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/30 backdrop-blur-sm border border-crimson/40 rounded-full mb-8">
-            <div className="w-2 h-2 bg-crimson rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-crimson">BROWSER MMORPG</span>
-          </div>
-          
-          {/* NO TITLE - Your artwork already has "UMBRA ROMÂNIEI" */}
-          <p className="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto leading-relaxed font-bold drop-shadow-2xl">
-            Într-o Românie coruptă și periculoasă, fiecare jucător își alege propriul drum spre putere.
-            <span className="text-gold"> Devino temut.</span>{' '}
-            <span className="text-crimson"> Devino legendă.</span>
-          </p>
-          
-          {/* CTA - EVEN FURTHER DOWN */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <button
-              onClick={handlePlayClick}
-              className="group inline-flex items-center gap-4 px-16 py-6 bg-gradient-to-r from-crimson to-red-700 text-white font-display font-black text-xl tracking-wider rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-crimson/50"
-            >
-              INTRĂ ÎN JOC
-              <ChevronRight className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-          
-          {/* Stats - VERY LOW */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto mb-24">
-            {[
-              ['10K+', 'JUCĂTORI'],
-              ['50+', 'CRIME'],
-              ['6', 'ORAȘE'],
-              ['∞', 'POSIBILITĂȚI'],
-            ].map(([value, label], i) => (
-              <div key={i} className="text-center">
-                <div className="font-display text-3xl font-bold text-gold mb-1">{value}</div>
-                <div className="text-sm text-white uppercase tracking-wider font-bold">{label}</div>
-              </div>
-            ))}
+      {/* Hero Content - BOTTOM ONLY */}
+      <section className="relative z-10 max-w-6xl mx-auto px-6 pb-24 text-center">
+        <div className="flex flex-col items-end justify-end min-h-[70vh]">
+          <div className="animate-slide-up mb-auto mt-auto">
+            {/* Browser Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/70 backdrop-blur-lg border-2 border-crimson/80 rounded-full mb-8">
+              <div className="w-2 h-2 bg-crimson rounded-full animate-pulse" />
+              <span className="text-base font-black text-crimson">BROWSER MMORPG</span>
+            </div>
+            
+            {/* Description */}
+            <p className="text-2xl md:text-3xl text-white mb-8 max-w-4xl mx-auto leading-relaxed font-black drop-shadow-2xl">
+              Într-o Românie coruptă și periculoasă, fiecare jucător își alege propriul drum spre putere.
+              <span className="text-gold"> Devino temut.</span>{' '}
+              <span className="text-crimson"> Devino legendă.</span>
+            </p>
+            
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              <button
+                onClick={handlePlayClick}
+                className="group inline-flex items-center gap-6 px-20 py-8 bg-gradient-to-r from-crimson to-red-700 text-white font-display font-black text-2xl tracking-wider rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-crimson/50"
+              >
+                INTRĂ ÎN JOC
+                <ChevronRight className="w-8 h-8 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+              {[
+                ['10K+', 'JUCĂTORI'],
+                ['50+', 'CRIME'],
+                ['6', 'ORAȘE'],
+                ['∞', 'POSIBILITĂȚI'],
+              ].map(([value, label], i) => (
+                <div key={i} className="text-center">
+                  <div className="font-display text-4xl font-black text-gold mb-2">{value}</div>
+                  <div className="text-base text-white uppercase tracking-wider font-black">{label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="relative z-10 py-20 px-6">
+      <section className="relative z-10 py-20 px-6 bg-black/80">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => {
@@ -129,7 +130,7 @@ const LandingPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 text-center py-8 text-xs text-gray-600 border-t border-gray-800/50">
+      <footer className="relative z-10 text-center py-8 text-xs text-gray-600 border-t border-gray-800/50 bg-black/80">
         <p>© 2026 Umbra României. Un MMORPG Noir despre putere, crimă și supraviețuire.</p>
       </footer>
     </div>
