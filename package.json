@@ -5,10 +5,20 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "node server.js",
+    "dev:full": "node server.js",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "safer-buffer": "^2.1.2",
+    "wrappy": "^1.0.2",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "better-sqlite3": "^12.10.0",
+    "cors": "^2.8.6",
+    "jsonwebtoken": "^9.0.3",
+    "express": "^5.2.1",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
